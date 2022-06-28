@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 
+import PokemonCard from "./components/PokemonCard";
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -12,13 +14,7 @@ function App() {
             count is: {count}
           </button>
         </p>
-        <figure>
-          <img
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-            alt="bulbasaur"
-          />
-          <figcaption>bulbasaur</figcaption>
-        </figure>
+        <PokemonCard />
       </header>
     </div>
   );
