@@ -32,6 +32,11 @@ const pokemonList = [
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
+  const previous = () =>
+    setPokemonIndex(
+      (previous) => (previous - 1 + pokemonList.length) % pokemonList.length
+    );
+
   const next = () =>
     setPokemonIndex((previous) => (previous + 1) % pokemonList.length);
 
@@ -39,6 +44,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
+          <button type="button" onClick={previous}>
+            previous
+          </button>
           <button type="button" onClick={next}>
             next
           </button>
