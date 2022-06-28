@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import PokemonType from "../prop-types/PokemonType";
 
@@ -15,17 +15,18 @@ function NavBar({ setPokemonName, pokemonList }) {
     "psychic",
   ];
 
-  useEffect(() => {
-    if (type === "electric") {
-      const interval = setInterval(() => alert("pika pikachu !!!"), 5000);
-
-      return () => clearInterval(interval);
-    }
-  }, [type]);
-
   return (
     <>
-      <select value={type} onChange={(event) => setType(event.target.value)}>
+      <select
+        value={type}
+        onChange={(event) => {
+          setType(event.target.value);
+
+          if (event.target.value === "electric") {
+            alert("pika pikachu !!!");
+          }
+        }}
+      >
         <option>all</option>
         {availableTypes.map((availableType) => (
           <option key={availableType}>{availableType}</option>
