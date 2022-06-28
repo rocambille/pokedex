@@ -5,11 +5,23 @@ import PokemonType from "../prop-types/PokemonType";
 function NavBar({ setPokemonName, pokemonList }) {
   const [type, setType] = useState("all");
 
+  const availableTypes = [
+    "grass",
+    "poison",
+    "fire",
+    "flying",
+    "water",
+    "electric",
+    "psychic",
+  ];
+
   return (
     <>
       <select value={type} onChange={(event) => setType(event.target.value)}>
         <option>all</option>
-        <option>water</option>
+        {availableTypes.map((availableType) => (
+          <option key={availableType}>{availableType}</option>
+        ))}
       </select>
       <div>
         {pokemonList
