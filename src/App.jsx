@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 import NavBar from "./components/NavBar";
@@ -8,6 +8,10 @@ import pokemonList from "./data/pokemonList";
 
 function App() {
   const [pokemonName, setPokemonName] = useState(pokemonList[0].name);
+
+  useEffect(() => {
+    console.log("hello pokemon trainer :)");
+  });
 
   return (
     <div className="App">
