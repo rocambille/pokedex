@@ -17,7 +17,7 @@ function NavBar({ setPokemonName, pokemonList }) {
 
   useEffect(() => {
     if (type === "electric") {
-      alert("pika pikachu !!!");
+      setInterval(() => alert("pika pikachu !!!"), 5000);
     }
   }, [type]);
 
