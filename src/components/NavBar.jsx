@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import PokemonType from "../prop-types/PokemonType";
 
@@ -14,6 +14,12 @@ function NavBar({ setPokemonName, pokemonList }) {
     "electric",
     "psychic",
   ];
+
+  useEffect(() => {
+    if (type === "electric") {
+      alert("pika pikachu !!!");
+    }
+  }, [type]);
 
   return (
     <>
