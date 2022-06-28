@@ -1,16 +1,19 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import PokemonType from "../prop-types/PokemonType";
 
 function NavBar({ setPokemonName, pokemonList }) {
+  const [type, setType] = useState("all");
+
   return (
     <>
-      <select>
+      <select value={type} onChange={(event) => setType(event.target.value)}>
         <option>all</option>
         <option>water</option>
       </select>
       <div>
         {pokemonList
-          .filter((pokemon) => pokemon.types.includes("water"))
+          .filter((pokemon) => type === "all" || pokemon.types.includes(type))
           .map((pokemon) => (
             <button
               type="button"
