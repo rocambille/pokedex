@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     console.log("hello pokemon trainer :)");
-  });
+  }, []);
 
   return (
     <div className="App">
