@@ -3,19 +3,25 @@ import PokemonType from "../prop-types/PokemonType";
 
 function NavBar({ setPokemonName, pokemonList }) {
   return (
-    <div>
-      {pokemonList
-        .filter((pokemon) => pokemon.types.includes("water"))
-        .map((pokemon) => (
-          <button
-            type="button"
-            onClick={() => setPokemonName(pokemon.name)}
-            key={pokemon.name}
-          >
-            {pokemon.name}
-          </button>
-        ))}
-    </div>
+    <>
+      <select>
+        <option>all</option>
+        <option>water</option>
+      </select>
+      <div>
+        {pokemonList
+          .filter((pokemon) => pokemon.types.includes("water"))
+          .map((pokemon) => (
+            <button
+              type="button"
+              onClick={() => setPokemonName(pokemon.name)}
+              key={pokemon.name}
+            >
+              {pokemon.name}
+            </button>
+          ))}
+      </div>
+    </>
   );
 }
 
