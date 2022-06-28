@@ -7,13 +7,15 @@ import PokemonCard from "./components/PokemonCard";
 import pokemonList from "./data/pokemonList";
 
 function App() {
-  const [pokemonIndex, setPokemonIndex] = useState(0);
+  const [pokemonName, setPokemonName] = useState(pokemonList[0].name);
 
   return (
     <div className="App">
       <header className="App-header">
-        <NavBar setPokemonIndex={setPokemonIndex} pokemonList={pokemonList} />
-        <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+        <NavBar setPokemonName={setPokemonName} pokemonList={pokemonList} />
+        <PokemonCard
+          pokemon={pokemonList.find((pokemon) => pokemon.name === pokemonName)}
+        />
       </header>
     </div>
   );
